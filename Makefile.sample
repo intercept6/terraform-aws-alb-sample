@@ -26,8 +26,3 @@ apply:
 .PHONY: destroy
 destroy:
 	${TERRAFORM} destroy ${VARS}
-
-.PHONY: clean
-clean:
-	@rm -rf terraform* && \
-	rm -rf .terraform*

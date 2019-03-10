@@ -7,8 +7,22 @@ TerraformでAWS ALBを作成するサンプル
 - HTTP-to-HTTPS redirect
 - ACMの証明書をインポート
 
-## デプロイ
+## コマンド
+
+### init & apply
 
 ```bash
-make create
+make
+```
+
+### apply
+
+```bash
+make apply
+```
+
+### destory
+
+```bash
+make destroy
 ```
