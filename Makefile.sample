@@ -1,0 +1,33 @@
+TERRAFORM=/usr/local/bin/terraform
+VARS=\
+	-var project='tf-example' \
+	-var vpc_id='vpc-*****************' \
+	-var subnet_ids='["subnet-*****************", "subnet-*****************"]' \
+	-var security_group_ids='["sg-*****************"]' \
+	-var acm_arn='arn:aws:acm:<<region>>:************:certificate/********-****-****-****-************'
+
+.PHONY: all
+all:
+	${TERRAFORM} init && \
+	${TERRAFORM} apply ${VARS}
+
+.PHONY: init
+init:
+	${TERRAFORM} init
+
+.PHONY: plan
+plan:
+	${TERRAFORM} plan ${VARS}
+
+.PHONY: apply
+apply:
+	${TERRAFORM} apply ${VARS}
+
+.PHONY: destroy
+destroy:
+	${TERRAFORM} destroy ${VARS}
+
+.PHONY: clean
+clean:
+	@rm -rf terraform* && \
+	rm -rf .terraform*
